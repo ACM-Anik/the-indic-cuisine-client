@@ -25,10 +25,10 @@ const Header = () => {
                     <li><NavLink className="navStyle" to="/blog">Blog</NavLink></li>
                 </ul>
             </div>
-            <div className="navbar-end">
+            <div className="navbar-end ">
                 {
                     // user ?
-                    //     <p></p>
+                    //     <p className="tooltip" data-tip={"hello"}></p>
                     //     :
                         <Link to="/login" className="btn rounded-lg md:px-6 border-0 bg-[#b40839] hover:bg-[#7f0427]">Login</Link>
                 }
