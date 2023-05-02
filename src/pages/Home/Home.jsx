@@ -1,4 +1,5 @@
 import React, { useEffect, useState } from 'react';
+import { Link } from 'react-router-dom';
 
 const Home = () => {
     const [chefs, setChefs] = useState([]);
@@ -33,9 +34,9 @@ const Home = () => {
                             <div className="card-body">
                                 <h2 className="card-title">{singleChefs.name}</h2>
                                 <p>If a dog chews shoes whose shoes does he choose?</p>
-                                <div className="card-actions justify-end">
-                                    <button className="btn btn-primary">Buy Now</button>
-                                </div>
+                                <Link to={`/chefsRecipes/${singleChefs.id}`} className="card-actions justify-end">
+                                    <button className="btn rounded-lg md:px-6 border-0 bg-[#b40839] hover:bg-[#7f0427]">View Recipes</button>
+                                </Link>
                             </div>
                         </div>
                     )}
