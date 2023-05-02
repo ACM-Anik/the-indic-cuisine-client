@@ -30,7 +30,7 @@ const Home = () => {
                 <div className='grid md:grid-cols-2 lg:grid-cols-3 gap-6 '>
                     {chefs?.map(singleChefs =>
                         <div className="card md:w-96 lg:w-[400px] mx-2 bg-base-100 shadow-xl">
-                            <figure><img src="https://img.freepik.com/free-photo/top-view-sari-indian-food_23-2148747657.jpg?t=st=1682980333~exp=1682980933~hmac=8ab36bdd53b01f366b095c6a65384cff20dff2cdd5d5f055b86e5c6f42e09b6a" alt="Shoes" /></figure>
+                            <figure><img src={singleChefs.picture} alt="chefs" /></figure>
                             <div className="card-body">
                                 <h2 className="card-title">{singleChefs.name}</h2>
                                 <p>If a dog chews shoes whose shoes does he choose?</p>
@@ -45,7 +45,7 @@ const Home = () => {
         </div>
     );
 };
-// {singleChefs.picture}
+// https://img.freepik.com/premium-photo/portrait-young-handsome-indian-man-chef-smiling_251136-32078.jpg?w=360
 
 // https://img.freepik.com/free-photo/indian-condiments-with-copy-space-view_23-2148723492.jpg?w=826&t=st=1682979468~exp=1682980068~hmac=0217a8d4c29c2b3155153d894aa55ffdf352a6e10dcce02ab8b33e8d26aa144e
 
