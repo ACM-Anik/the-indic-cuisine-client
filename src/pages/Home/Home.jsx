@@ -11,7 +11,7 @@ const Home = () => {
     }, [])
 
     return (
-        <div>
+        <div className='min-h-screen'>
             {/* Banner */}
             <section>
                 <div className="hero min-h-fit rounded" style={{ backgroundImage: `url("https://img.freepik.com/premium-photo/top-view-indian-food-spices_23-2148747592.jpg?w=740")`, height: '600px' }}>
@@ -29,8 +29,8 @@ const Home = () => {
                 <h1 className='text-5xl font-bold text-center my-6'>All The Best Chefs</h1>
                 <div className='grid md:grid-cols-2 lg:grid-cols-3 gap-6 '>
                     {chefs?.map(singleChefs =>
-                        <div className="card md:w-96 lg:w-[400px] mx-2 bg-base-100 shadow-xl">
-                            <figure><img style={{height:"320px"}} src={singleChefs.picture} alt="chefs" /></figure>
+                        <div key={singleChefs.id} className="card md:w-96 lg:w-[400px] mx-2 bg-base-100 shadow-xl">
+                            <figure><img style={{height:"300px"}} src={singleChefs.picture} alt="chefs" /></figure>
                             <div className="card-body">
                                 <h2 className="card-title">{singleChefs.name}</h2>
                                 <p>If a dog chews shoes whose shoes does he choose?</p>
