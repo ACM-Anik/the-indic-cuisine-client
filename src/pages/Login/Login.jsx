@@ -1,10 +1,11 @@
 import React, { useContext, useState } from 'react';
-import { Link } from 'react-router-dom';
+import { Link, useNavigate } from 'react-router-dom';
 import { AuthContext } from '../../Providers/AuthProvider';
 
 
 const Login = () => {
     const { signIn, signInWithGoogle, signInWithGithub } = useContext(AuthContext);
+    const navigate = useNavigate();
 
     const [success, setSuccess] = useState('');
     const [error, setError] = useState('');
@@ -23,6 +24,7 @@ const Login = () => {
                 setSuccess(loggedUser);
                 console.log(loggedUser);
                 form.reset();
+                navigate('/');
 
             })
             .catch(error => {
@@ -59,7 +61,7 @@ const Login = () => {
     }
     
     return (
-        <div className="hero min-h-screen bg-base-200">
+        <div className="hero min-h-screen my-10">
             <div className="card flex-shrink-0 w-full max-w-sm shadow-2xl bg-base-100">
                 <form onSubmit={handleLogin} className="card-body pb-4">
                     <div className="form-control">
@@ -93,13 +95,12 @@ const Login = () => {
                 </div>
                 <br />
                 {success &&
-                    <h5 className="text-success">
+                    <h5 className="text-center text-success py-2">
                         LogIn successfully done!
                     </h5>
                 }
-
                 {error &&
-                    <h5 className="text-danger">
+                    <h5 className="text-center text-danger py-2">
                         {error}
                     </h5>
                 }

@@ -6,6 +6,7 @@ import Login from "../pages/Login/Login";
 import Register from "../pages/Login/Register";
 import Blogs from "../pages/Blogs/Blogs";
 import ChefsRecipes from "../pages/ChefRecipes/chefsRecipes";
+import PrivateRoute from "./PrivateRoute";
 
 
 
@@ -21,9 +22,11 @@ const router = createBrowserRouter([
                 element: <Home></Home>
             },
             {
-                path:"/chefsRecipes/:id",
-                element: <ChefsRecipes></ChefsRecipes>,
-                loader: ({params}) => fetch(`http://localhost:5000/chefs/${params.id}`)
+                path: "/chefsRecipes/:id",
+                element: <PrivateRoute>
+                            <ChefsRecipes></ChefsRecipes>
+                        </PrivateRoute>,
+                loader: ({ params }) => fetch(`https://the-indic-cuisine-server-acm-anik.vercel.app/chefs/${params.id}`)
             },
             {
                 path: "/blog",

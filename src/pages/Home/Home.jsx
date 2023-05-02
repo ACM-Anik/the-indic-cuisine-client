@@ -5,13 +5,13 @@ const Home = () => {
     const [chefs, setChefs] = useState([]);
 
     useEffect(() => {
-        fetch("http://localhost:5000/chefs")
+        fetch("https://the-indic-cuisine-server-acm-anik.vercel.app/chefs")
             .then(res => res.json())
             .then(data => setChefs(data));
     }, [])
 
     return (
-        <div className='min-h-screen'>
+        <div className=''>
             {/* Banner */}
             <section>
                 <div className="hero min-h-fit rounded" style={{ backgroundImage: `url("https://img.freepik.com/premium-photo/top-view-indian-food-spices_23-2148747592.jpg?w=740")`, height: '600px' }}>

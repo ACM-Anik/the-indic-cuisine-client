@@ -29,7 +29,7 @@ const Footer = () => {
                         <div className="form-control md:w-80">
                             <div className="relative">
                                 <input type="text" placeholder="username@site.com" className="input input-bordered w-full md:pr-16 rounded-lg" />
-                                <button className="btn btn-primary absolute top-0 right-0 rounded-l-none rounded-lg bg-[#b40839] hover:bg-[#7f0427]">Subscribe</button>
+                                <button className="btn btn-primary absolute top-0 right-0 rounded-l-none rounded-lg text-white bg-[#b40839] hover:bg-[#7f0427]">Subscribe</button>
                             </div>
                         </div>
                     </div>

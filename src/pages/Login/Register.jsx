@@ -12,9 +12,10 @@ const Register = () => {
 
         const form = event.target;
         const name = form.name.value;
+        const photo = form.photo.value;
         const email = form.email.value;
         const password = form.password.value;
-        console.log(name, email, password);
+        console.log(name, photo, email, password);
 
         if (password.length < 6) {
             setError('Password length must be 6 digits or longer');
@@ -33,7 +34,7 @@ const Register = () => {
 
 
     return (
-        <div className="hero min-h-screen bg-base-200 py-10">
+        <div className="hero min-h-screen py-10">
             <div className="hero-content flex-col lg:flex-row-reverse">
                 <div className="text-center lg:text-left">
                     <h1 className="text-5xl font-bold">Please Register!</h1>
@@ -51,7 +52,7 @@ const Register = () => {
                             <label className="label">
                                 <span className="label-text">Photo URL</span>
                             </label>
-                            <input type="text" name='photo' placeholder="Photo URL" className="input input-bordered rounded-lg" required />
+                            <input type="text" name="photo"placeholder="Photo URL" className="input input-bordered rounded-lg" required />
                         </div>
                         <div className="form-control">
                             <label className="label">
