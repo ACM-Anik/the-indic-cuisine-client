@@ -1,5 +1,5 @@
 import React, { useContext } from 'react';
-
+import { FaceFrownIcon, FaceSmileIcon } from '@heroicons/react/24/solid';
 import { NavLink, Link } from 'react-router-dom';
 import { AuthContext } from '../../../Providers/AuthProvider';
 
@@ -37,8 +37,8 @@ const Header = () => {
             <div className="navbar-end ">
                 {
                     user ?
-                        <span>
-                            <p className="tooltip" data-tip="hello"></p>
+                        <span className='flex items-center'>
+                            <p className="tooltip  " data-tip="hello"><FaceSmileIcon className='w-10 h-10' /></p>
                             <button className='btn rounded-lg md:px-6 border-0 bg-[#b40839] hover:bg-[#7f0427]' onClick={handleLogOut}>sign Out</button>
                         </span>
                         :

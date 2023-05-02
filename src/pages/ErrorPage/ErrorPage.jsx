@@ -11,9 +11,9 @@ const ErrorPage = () => {
     <div className="hero-overlay bg-opacity-60"></div>
     <div className="hero-content text-center text-neutral-content">
         <div className="max-w-md flex flex-col items-center justify-center px-5 my-8">
-            <FaceFrownIcon className='w-40 h-40 color-gradient' />
+            <FaceFrownIcon className='w-40 h-40' />
             <div className='max-w-md text-center'>
-                <h2 className='mb-8 font-extrabold text-7xl color-gradient'>
+                <h2 className='mb-8 font-extrabold text-7xl'>
                     {status || 404}
                 </h2>
                 <p className='text-2xl font-semibold md:text-3xl  mb-8'>

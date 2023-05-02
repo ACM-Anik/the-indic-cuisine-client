@@ -26,9 +26,9 @@ const Footer = () => {
                         <a><svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" className="fill-current"><path d="M9 8h-3v4h3v12h5v-12h3.642l.358-4h-4v-1.667c0-.955.192-1.333 1.115-1.333h2.885v-5h-3.808c-3.596 0-5.192 1.583-5.192 4.615v3.385z"></path></svg></a>
                     </div>
                     <div>
-                        <div className="form-control w-80">
+                        <div className="form-control md:w-80">
                             <div className="relative">
-                                <input type="text" placeholder="username@site.com" className="input input-bordered w-full pr-16 rounded-lg" />
+                                <input type="text" placeholder="username@site.com" className="input input-bordered w-full md:pr-16 rounded-lg" />
                                 <button className="btn btn-primary absolute top-0 right-0 rounded-l-none rounded-lg bg-[#b40839] hover:bg-[#7f0427]">Subscribe</button>
                             </div>
                         </div>
