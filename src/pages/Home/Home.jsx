@@ -1,5 +1,6 @@
 import React, { useEffect, useState } from 'react';
 import AllChefs from '../Chefs/AllChefs/AllChefs';
+import IndicFamily from './IndicFamily';
 
 const Home = () => {
     const [chefs, setChefs] = useState([]);
@@ -40,6 +41,12 @@ const Home = () => {
 
                     )}
                 </div>
+            </section>
+            <section className='my-10 mx-auto'>
+                <IndicFamily></IndicFamily>
+            </section>
+            <section>
+                
             </section>
         </div>
     );

@@ -1,4 +1,5 @@
 import React, { useState } from 'react';
+import toast from 'react-hot-toast';
 
 const RecipesDetails = ({ singleRecipe }) => {
     const { recipe_name, picture, how_to_cook, ingredients, rating, price } = singleRecipe;
@@ -6,6 +7,8 @@ const RecipesDetails = ({ singleRecipe }) => {
     const [toggle, setToggle] = useState(false);
     const handleFavorite = () => {
         setToggle(true);
+        toast('✅Bookmarked as favorite!');
+        
     }
     
     return (
