@@ -8,7 +8,8 @@ const Home = () => {
         fetch("https://the-indic-cuisine-server-acm-anik.vercel.app/chefs")
             .then(res => res.json())
             .then(data => setChefs(data));
-    }, [])
+    }, []);
+
 
     return (
         <div className=''>

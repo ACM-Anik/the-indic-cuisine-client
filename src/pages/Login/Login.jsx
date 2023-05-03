@@ -8,7 +8,6 @@ const Login = () => {
     const { signIn, signInWithGoogle, signInWithGithub } = useContext(AuthContext);
     const navigate = useNavigate();
     const location = useLocation();
-    console.log("LoginPage",location);
     const from = location.state?.from?.pathname || "/";
 
     const [success, setSuccess] = useState('');
@@ -27,8 +26,8 @@ const Login = () => {
                 const loggedUser = result.user;
                 setSuccess(loggedUser);
                 console.log(loggedUser);
-                form.reset();
                 navigate(from, {replace: true});
+                form.reset();
 
             })
             .catch(error => {
@@ -43,11 +42,10 @@ const Login = () => {
             .then(result => {
                 const loggedUser = result.user;
                 setSuccess(loggedUser);
-                console.log(loggedUser);
+                navigate(from, {replace: true});
             })
             .catch(error => {
-                setError(error);
-                console.log(error);
+                setError(error.message);
             })
     }
 
@@ -56,11 +54,10 @@ const Login = () => {
         .then(result => {
             const loggedUser = result.user;
             setSuccess(loggedUser);
-            console.log(loggedUser);
+            navigate(from, {replace: true});
         })
         .catch(error => {
-            setError(error);
-            console.log(error);
+            setError(error.message);
         })
     }
     

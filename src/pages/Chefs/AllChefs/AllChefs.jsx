@@ -2,7 +2,7 @@ import React from 'react';
 import { Link } from 'react-router-dom';
 
 const AllChefs = ({ singleChef }) => {
-    const { id, name, picture, yearsOfExperience, numberOfRecipes, likes, description } = singleChef;
+    const { id, name, picture, yearsOfExperience, numberOfRecipes, likes} = singleChef;
 
     return (
         <div className="card md:w-96 lg:w-[400px] mx-2 bg-base-100 shadow-xl">

@@ -1,15 +1,18 @@
 import React, { useContext } from 'react';
-import { FaceFrownIcon, FaceSmileIcon } from '@heroicons/react/24/solid';
 import { NavLink, Link } from 'react-router-dom';
 import { AuthContext } from '../../../Providers/AuthProvider';
+import { Tooltip } from 'react-tooltip';
+import 'react-tooltip/dist/react-tooltip.css';
+import { UserCircleIcon } from '@heroicons/react/24/solid';
 
 const Header = () => {
-    const {user, logOut} = useContext(AuthContext);
+    const { user, logOut } = useContext(AuthContext);
+    console.log(user);
 
     const handleLogOut = () => {
         logOut()
-        .then(result => {})
-        .catch(error => console.log(error));
+            .then(result => { })
+            .catch(error => console.log(error));
     }
 
     return (
@@ -37,8 +40,26 @@ const Header = () => {
             <div className="navbar-end ">
                 {
                     user ?
-                        <span className='flex items-center'>
-                            <p className="tooltip  " data-tip="hello"><FaceSmileIcon className='w-10 h-10' /></p>
+                        <span className='flex items-center gap-5'>
+                            {
+                                user.photoURL ?
+                                    <div>
+                                        <a
+                                            data-tooltip-id="my-tooltip"
+                                            data-tooltip-content={user?.displayName}
+                                            data-tooltip-place="left"
+                                            className="avatar">
+                                            <div className="w-10 rounded-full ring ring-primary ring-offset-base-100 ring-offset-2">
+                                                <img src={user?.photoURL} alt='profile' />
+                                            </div>
+                                        </a>
+                                        <Tooltip id="my-tooltip" />
+                                    </div>
+                                    :
+                                    <UserCircleIcon className="h-11 w-11 text-blue-500" />
+                                    
+
+                            }
                             <button className='btn rounded-lg md:px-6 border-0 bg-[#b40839] hover:bg-[#7f0427]' onClick={handleLogOut}>sign Out</button>
                         </span>
                         :
