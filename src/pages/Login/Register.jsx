@@ -5,7 +5,7 @@ import { AuthContext } from '../../Providers/AuthProvider';
 
 const Register = () => {
     const [error, setError] = useState('');
-    const { user, createUser } = useContext(AuthContext);
+    const { createUser } = useContext(AuthContext);
 
     const handleRegister = (event) => {
         event.preventDefault();
@@ -15,7 +15,6 @@ const Register = () => {
         const photo = form.photo.value;
         const email = form.email.value;
         const password = form.password.value;
-        console.log(name, photo, email, password);
 
         if (password.length < 6) {
             setError('Password length must be 6 digits or longer');
@@ -25,6 +24,7 @@ const Register = () => {
         createUser(email, password)
             .then(result => {
                 const loggedUser = result.user;
+                setError('');
                 form.reset();
             })
             .catch(error => {

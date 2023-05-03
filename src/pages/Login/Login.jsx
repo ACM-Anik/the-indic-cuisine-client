@@ -5,7 +5,7 @@ import { useLocation } from 'react-router';
 
 
 const Login = () => {
-    const { signIn, signInWithGoogle, signInWithGithub } = useContext(AuthContext);
+    const { user, signIn, signInWithGoogle, signInWithGithub } = useContext(AuthContext);
     const navigate = useNavigate();
     const location = useLocation();
     const from = location.state?.from?.pathname || "/";
@@ -21,17 +21,22 @@ const Login = () => {
         const password = form.password.value;
         console.log(email, password);
 
+        // if(){
+
+        // }
+
         signIn(email, password)
             .then(result => {
                 const loggedUser = result.user;
                 setSuccess(loggedUser);
                 console.log(loggedUser);
                 navigate(from, {replace: true});
+                setError('');
                 form.reset();
-
             })
             .catch(error => {
                 setError(error);
+                setSuccess("");
                 console.log(error.message);
                 return;
             })
@@ -43,9 +48,11 @@ const Login = () => {
                 const loggedUser = result.user;
                 setSuccess(loggedUser);
                 navigate(from, {replace: true});
+                setError('');
             })
             .catch(error => {
                 setError(error.message);
+                setSuccess("");
             })
     }
 
@@ -55,9 +62,11 @@ const Login = () => {
             const loggedUser = result.user;
             setSuccess(loggedUser);
             navigate(from, {replace: true});
+            setError('');
         })
         .catch(error => {
             setError(error.message);
+            setSuccess("");
         })
     }
     
