@@ -5,7 +5,7 @@ import ErrorPage from "../pages/ErrorPage/ErrorPage";
 import Login from "../pages/Login/Login";
 import Register from "../pages/Login/Register";
 import Blogs from "../pages/Blogs/Blogs";
-import ChefsRecipes from "../pages/ChefRecipes/chefsRecipes";
+import ChefsRecipes from "../pages/Chefs/ChefRecipes/ChefsRecipes";
 import PrivateRoute from "./PrivateRoute";
 
 
