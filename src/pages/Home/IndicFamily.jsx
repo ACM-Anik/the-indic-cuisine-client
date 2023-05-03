@@ -9,7 +9,7 @@ const IndicFamily = () => {
             </div>
             <div className="carousel w-full">
                 <div id="slide1" className="carousel-item relative h-[580px] w-full">
-                    <img src="https://media.istockphoto.com/id/458567693/photo/indian-hotel-chefs-preparing-food.jpg?s=612x612&w=0&k=20&c=vDvJjvE_SLM0lH6HKzjOeBMIcivcLv8IP0CFmPNed2k=" className="w-full object-cover rounded" />
+                    <img src="https://media.istockphoto.com/id/1131538033/photo/indian-chefs-cooking-in-a-professional-kitchen-of-a-gourmet-restaurant.jpg?s=612x612&w=0&k=20&c=uGMGXD3Qm6Gj0RzmaCEC3rCdR7P6b8Y9G9m-DIwgarI=" className="w-full object-cover rounded" />
                     <div className="absolute flex justify-between transform -translate-y-1/2 left-5 right-5 top-1/2">
                         <a href="#slide4" className="btn btn-circle">❮</a>
                         <a href="#slide2" className="btn btn-circle">❯</a>
@@ -30,7 +30,7 @@ const IndicFamily = () => {
                     </div>
                 </div>
                 <div id="slide4" className="carousel-item relative h-[580px] w-full">
-                    <img src="https://media.istockphoto.com/id/1131410171/photo/busy-kitchen-scene-from-an-upscale-fine-dining-indian-restaurant-kitchen.jpg?s=612x612&w=0&k=20&c=ZSTjX1aXAdjb7_h7WtXL47wmOQfSqJc5ZfOJyWViK5I=" className="w-full object-cover rounded" />
+                    <img src="https://media.istockphoto.com/id/458567693/photo/indian-hotel-chefs-preparing-food.jpg?s=612x612&w=0&k=20&c=vDvJjvE_SLM0lH6HKzjOeBMIcivcLv8IP0CFmPNed2k=" className="w-full object-cover rounded" />
                     <div className="absolute flex justify-between transform -translate-y-1/2 left-5 right-5 top-1/2">
                         <a href="#slide3" className="btn btn-circle">❮</a>
                         <a href="#slide1" className="btn btn-circle">❯</a>

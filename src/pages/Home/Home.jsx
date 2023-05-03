@@ -1,6 +1,7 @@
 import React, { useEffect, useState } from 'react';
 import AllChefs from '../Chefs/AllChefs/AllChefs';
 import IndicFamily from './IndicFamily';
+import NewlyInvented from './NewlyInvented';
 
 const Home = () => {
     const [chefs, setChefs] = useState([]);
@@ -42,11 +43,11 @@ const Home = () => {
                     )}
                 </div>
             </section>
-            <section className='my-10 mx-auto'>
+            <section className='my-16 mx-auto'>
                 <IndicFamily></IndicFamily>
             </section>
-            <section>
-                
+            <section className='my-16'>
+                <NewlyInvented></NewlyInvented>
             </section>
         </div>
     );
