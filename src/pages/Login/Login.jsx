@@ -35,9 +35,9 @@ const Login = () => {
                 form.reset();
             })
             .catch(error => {
-                setError(error);
+                setError(error.massage);
                 setSuccess("");
-                console.log(error.message);
+                console.log(error);
                 return;
             })
     }

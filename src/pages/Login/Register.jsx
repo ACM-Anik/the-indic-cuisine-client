@@ -1,11 +1,16 @@
 import React, { useContext, useState } from 'react';
-import { Link } from 'react-router-dom';
+import { Link, useNavigate } from 'react-router-dom';
 import { AuthContext } from '../../Providers/AuthProvider';
+import { useLocation } from 'react-router';
+import { updateProfile } from "firebase/auth";
 
 
 const Register = () => {
     const [error, setError] = useState('');
     const { createUser } = useContext(AuthContext);
+    const navigate = useNavigate();
+    const location = useLocation();
+    const from = location.state?.from?.pathname || "/";
 
     const handleRegister = (event) => {
         event.preventDefault();
@@ -20,16 +25,35 @@ const Register = () => {
             setError('Password length must be 6 digits or longer');
             return;
         }
+        else if(!/^\w+([\.-]?\w+)*@\w+([\.-]?\w+)*(\.\w{2,3})+$/.test(email)){
+            setError('Invalid email');
+            return;
+        }
 
         createUser(email, password)
             .then(result => {
                 const loggedUser = result.user;
                 setError('');
+                navigate(from, {replace: true});
                 form.reset();
+                updateUserData(loggedUser, name, photo);
             })
             .catch(error => {
                 console.log(error.message);
-            })
+                setError(error.message);
+            });
+    }
+
+    const updateUserData = (user, name, photo) =>{
+        updateProfile(user, {
+            displayName: name,
+            photoURL: photo
+        })
+        .then(()=>{ })
+        .catch(error => {
+            setError(error.message);
+        }
+     );
     }
 
 
