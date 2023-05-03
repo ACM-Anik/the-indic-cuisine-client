@@ -21,24 +21,18 @@ const Login = () => {
         const password = form.password.value;
         console.log(email, password);
 
-        // if(){
-
-        // }
-
         signIn(email, password)
             .then(result => {
                 const loggedUser = result.user;
                 setSuccess(loggedUser);
                 console.log(loggedUser);
                 navigate(from, {replace: true});
-                setError('');
                 form.reset();
             })
             .catch(error => {
                 setError(error.massage);
                 setSuccess("");
                 console.log(error);
-                return;
             })
     }
 
@@ -99,7 +93,7 @@ const Login = () => {
 
                 <div className="divider mx-4">OR</div>
 
-                <div className="grid gap-4 card place-items-center mx-8">
+                <div className="grid gap-3 card place-items-center mx-8">
                     <button onClick={handleGoogleSignIn} className='btn btn-outline rounded-lg w-full border-2 border-[#b40839] hover:bg-[#7f0427]'>Google Login</button>
                     <button onClick={handleGithubSignIn} className='btn btn-outline rounded-lg w-full border-2 border-[#b40839] hover:bg-[#7f0427]'>Github Login</button>
                 </div>

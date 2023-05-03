@@ -7,7 +7,6 @@ import { UserCircleIcon } from '@heroicons/react/24/solid';
 
 const Header = () => {
     const { user, logOut } = useContext(AuthContext);
-    console.log(user);
 
     const handleLogOut = () => {
         logOut()
@@ -56,7 +55,7 @@ const Header = () => {
                                         <Tooltip id="my-tooltip" />
                                     </div>
                                     :
-                                    <UserCircleIcon className="h-11 w-11 text-blue-500" />
+                                    <UserCircleIcon className="h-11 w-11 " />
                                     
 
                             }

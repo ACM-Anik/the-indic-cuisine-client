@@ -1,24 +1,42 @@
 import React, { useEffect, useState } from 'react';
+import { useParams, useLoaderData } from 'react-router-dom';
+import RecipesDetails from '../RecipesDetails/RecipesDetails';
 
 const ChefsRecipes = () => {
-    const [singleChef, setSingleChef] = useState([]);
+    const { id } = useParams();
+    const allChefs = useLoaderData();
+    const { name, picture, yearsOfExperience, numberOfRecipes, likes, description, recipes } = allChefs;
 
-    useEffect(() => {
-        fetch("https://the-indic-cuisine-server-acm-anik.vercel.app/chefs")
-            .then(res => res.json())
-            .then(data => setSingleChef(data));
-    }, [])
     return (
-        <div className="hero min-h-screen bg-base-200">
-            <div className="hero-content flex-col lg:flex-row">
-                <img src="/images/stock/photo-1635805737707-575885ab0820.jpg" className="max-w-sm rounded-lg shadow-2xl" />
-                <div>
-                    <h1 className="text-5xl font-bold">Box Office News!</h1>
-                    <p className="py-6">Provident cupiditate voluptatem et in. Quaerat fugiat ut assumenda excepturi exercitationem quasi. In deleniti eaque aut repudiandae et a id nisi.</p>
-                    <button className="btn btn-primary">Get Started</button>
+        <section>
+            <div className="hero h-[500px] bg-base-200 rounded">
+                <div className="hero-content flex-col lg:flex-row">
+                    <img style={{width:"600px"}} src={picture} className="max-h-80 rounded-lg shadow-xl" />
+                    <div>
+                        <h1 className="text-5xl font-bold">{name}</h1>
+                        <p className="py-6 text-xl font-semibold">{description}</p>
+                        <div className='md:flex items-center gap-10'>
+                            <div>
+                                <p className='text-xl font-semibold'>Experience: {yearsOfExperience} years</p>
+                                <p className='text-xl font-semibold'>Recipes: {numberOfRecipes}+ recipes</p>
+                                <p className='text-xl font-semibold'>Likes: {likes}+</p>
+                            </div>
+                            <button className="btn px-6 btn-outline rounded-lg border-2 text-[#7f0427] border-[#7f0427] hover:bg-[#7f0427] ">For More</button>
+                        </div>
+                    </div>
                 </div>
             </div>
-        </div>
+            <div className='w-[1000px] mx-auto my-20'>
+                <h1 className='text-5xl font-bold text-center mt-16 mb-10 '>Chef's <span className='text-[#b40839]'>Unique</span> Recipes</h1>
+                {
+                    recipes?.map(singleRecipe =>
+                        <RecipesDetails
+                            key={singleRecipe.recipe_id}
+                            singleRecipe={singleRecipe}
+                        ></RecipesDetails>)
+                }
+            </div>
+        </section>
     );
 };
 

@@ -27,7 +27,10 @@ const Home = () => {
                 </div>
             </section>
             <section className='my-20 mx-auto'>
-                <h1 className='text-5xl font-bold text-center my-6'>All The Best Chefs</h1>
+                <div className='my-8'>
+                    <h1 className='text-5xl font-bold text-center my-3'>All The Best Chefs</h1>
+                    <p className='text-center font-semibold'>They are the best among the best chefs in The Indic Cuisine.</p>
+                </div>
                 <div className='grid md:grid-cols-2 lg:grid-cols-3 gap-6 '>
                     {chefs?.map(singleChef =>
                         <AllChefs

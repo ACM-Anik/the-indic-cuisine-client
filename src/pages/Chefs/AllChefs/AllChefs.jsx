@@ -14,7 +14,7 @@ const AllChefs = ({ singleChef }) => {
                         <p className='font-semibold'>Experience: {yearsOfExperience} years</p>
                         <p className='font-semibold'>Recipes: {numberOfRecipes}+</p>
                     </div>
-                    <p className='font-semibold'>Likes:{likes}+</p>
+                    <p className='font-semibold'>Likes: {likes}+</p>
                 </div>
                 <Link to={`/chefsRecipes/${id}`} className="card-actions justify-end">
                     <button className="btn rounded-lg md:px-6 border-0 bg-[#b40839] hover:bg-[#7f0427]">View Recipes</button>
