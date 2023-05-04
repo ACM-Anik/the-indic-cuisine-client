@@ -4,6 +4,7 @@ import { AuthContext } from '../../Providers/AuthProvider';
 import { useLocation } from 'react-router';
 
 
+
 const Login = () => {
     const { user, signIn, signInWithGoogle, signInWithGithub } = useContext(AuthContext);
     const navigate = useNavigate();
@@ -26,11 +27,11 @@ const Login = () => {
                 const loggedUser = result.user;
                 setSuccess(loggedUser);
                 console.log(loggedUser);
-                navigate(from, {replace: true});
+                navigate(from, { replace: true });
                 form.reset();
             })
             .catch(error => {
-                setError(error.massage);
+                setError("Didn't match! Please provide correct input.");
                 setSuccess("");
                 console.log(error);
             })
@@ -41,7 +42,7 @@ const Login = () => {
             .then(result => {
                 const loggedUser = result.user;
                 setSuccess(loggedUser);
-                navigate(from, {replace: true});
+                navigate(from, { replace: true });
                 setError('');
             })
             .catch(error => {
@@ -52,20 +53,20 @@ const Login = () => {
 
     const handleGithubSignIn = () => {
         signInWithGithub()
-        .then(result => {
-            const loggedUser = result.user;
-            setSuccess(loggedUser);
-            navigate(from, {replace: true});
-            setError('');
-        })
-        .catch(error => {
-            setError(error.message);
-            setSuccess("");
-        })
+            .then(result => {
+                const loggedUser = result.user;
+                setSuccess(loggedUser);
+                navigate(from, { replace: true });
+                setError('');
+            })
+            .catch(error => {
+                setError(error.message);
+                setSuccess("");
+            })
     }
-    
+
     return (
-        <div className="hero min-h-screen my-10">
+        <div className="hero min-h-fit my-10">
             <div className="card flex-shrink-0 w-full max-w-sm shadow-2xl bg-base-100">
                 <form onSubmit={handleLogin} className="card-body pb-4">
                     <div className="form-control">
@@ -97,17 +98,15 @@ const Login = () => {
                     <button onClick={handleGoogleSignIn} className='btn btn-outline rounded-lg w-full border-2 border-[#b40839] hover:bg-[#7f0427]'>Google Login</button>
                     <button onClick={handleGithubSignIn} className='btn btn-outline rounded-lg w-full border-2 border-[#b40839] hover:bg-[#7f0427]'>Github Login</button>
                 </div>
-                <br />
-                {success &&
-                    <h5 className="text-center text-success py-2">
-                        LogIn successfully done!
-                    </h5>
-                }
-                {error &&
-                    <h5 className="text-center text-danger py-2">
-                        {error}
-                    </h5>
-                }
+                <div>
+                    <br />
+                    {
+                        success && <h5 className="text-center text-success py-2">LogIn successfully done!</h5>
+                    }
+                    {
+                        error && <h5 className="text-center text-[#b40839] py-2">{error}</h5>
+                    }
+                </div>
             </div>
         </div>
     );

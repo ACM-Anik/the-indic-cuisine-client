@@ -20,6 +20,7 @@ const Register = () => {
         const photo = form.photo.value;
         const email = form.email.value;
         const password = form.password.value;
+        setError('');
 
         if (password.length < 6) {
             setError('Password length must be 6 digits or longer');
@@ -29,6 +30,14 @@ const Register = () => {
             setError('Invalid email');
             return;
         }
+        
+        if(photo !== null | photo !== undefined){
+            if(!/^https?:\/\/(?:www\.)?[-a-zA-Z0-9@:%._\+~#=]{1,256}\.[a-zA-Z0-9()]{1,6}\b(?:[-a-zA-Z0-9()@:%_\+.~#?&\/=]*)$/.test(photo)){
+                setError('Provide photo URL please');
+                return;
+            }
+        }
+        
 
         createUser(email, password)
             .then(result => {

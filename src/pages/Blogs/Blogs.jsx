@@ -1,32 +1,22 @@
 import React, { useRef } from 'react';
-import html2canvas from 'html2canvas';
-import { jsPDF } from "jspdf";
+import Pdf from "react-to-pdf";
 
+
+const ref = React.createRef();
 
 const Blogs = () => {
-    const pdfRef = useRef();
-    // const downloadPDF = () => {
-    //     const input = pdfRef.current;
-    //     html2canvas(input).then((canvas) = {
-    //         const imgData = canvas.toDataURL('image/png'); 
-    //         const pdf = new jsPDF('p', 'mm', 'a4', true);
-    //         const pdfWidth = pdf.internal.pageSize.getWidth();
-    //         const pdfHeight = pdf.internal.pageSize.getHeight();
-    //         const imgWidth = canvas.width; 
-    //         const imgHeight = canvas.height;
-    //         const ratio = Math.min(pdfWidth / imgWidth, pdfHeight / ingHeight);
-    //         const imgX = (pdfWidth - imgWidth * ratio) / 2;
-    //         const imgY = 30;
-    //         pdf.addImage(imgData, 'PNG', imgX, imgY, imgWidth * ratio, imgHeight * ratio); 
-    //         pdf.save('blog.pdf');
-    // });
-// };
+    const options = {
+        orientation: "landscape",
+        unit: "px",
+        format: [480, 720], 
+    };
+
     return (
-        <>
-            <div className='mt-10'>
-                <button className="btn px-6 btn-outline rounded-lg border-2 text-[#7f0427] border-[#7f0427] hover:bg-[#7f0427] ">Download PDF</button>
-            </div>
-            <div className="my-5" ref={pdfRef}>
+        <div className='mt-10'>
+            <Pdf targetRef={ref} options={options} filename="Blog_Questions.pdf" >
+                {({ toPdf }) => <button onClick={toPdf} className="btn btn-outline rounded-lg border-2 text-[#7f0427] border-[#7f0427] hover:bg-[#7f0427] ">Download PDF</button>}
+            </Pdf>
+            <div className="my-8 mx-auto" ref={ref}>
                 <div className='mb-10'>
                     <h1 className="text-center text-4xl font-bold ">Some Blog <span className="text-[#b40839]">Questions</span></h1>
                 </div>
@@ -59,7 +49,7 @@ const Blogs = () => {
                     </div>
                 </div>
             </div>
-        </>
+        </div>
     );
 };
 
