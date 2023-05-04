@@ -3,6 +3,7 @@
 
 ## The Indic Cuisine
 
+### This website is about the cuisine of India. Here all the features are about recipes and chefs of indian cuisine.
 
 ## Features and Parts
 - Home
