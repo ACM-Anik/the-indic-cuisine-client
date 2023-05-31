@@ -18,7 +18,7 @@ const Home = () => {
             {/* Banner */}
             <section>
                 <div className="hero min-h-fit rounded" style={{ backgroundImage: `url("https://img.freepik.com/premium-photo/top-view-indian-food-spices_23-2148747592.jpg?w=740")`, height: '600px' }}>
-                    <div className=" bg-opacity-90"></div>
+                    <div className=" bg-opacity-50"></div>
                     <div className="hero-content text-center text-neutral-content">
                         <div className="max-w-md">
                             <h1 className="mb-5 text-7xl font-bold">The Best Cuisine Ever</h1>
@@ -28,6 +28,7 @@ const Home = () => {
                     </div>
                 </div>
             </section>
+        {/* All The Best Chefs */}
             <section className='my-20 mx-auto'>
                 <div className='my-8'>
                     <h1 className='text-5xl font-bold text-center my-3'>All The Best Chefs</h1>
@@ -43,9 +44,11 @@ const Home = () => {
                     )}
                 </div>
             </section>
+            {/* Indic Family */}
             <section className='my-16 mx-auto'>
                 <IndicFamily></IndicFamily>
             </section>
+            {/* Newly Invented */}
             <section className='my-16'>
                 <NewlyInvented></NewlyInvented>
             </section>
